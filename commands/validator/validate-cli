@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+## #ddev-generated: If you want to edit and own this file, remove this line.
+## Description: Run vnu checks for a given url
+## Usage: validate-cli
+## Example: "ddev validate-cli" or "ddev validate-cli https://<project>.ddev.site"
+
+
+if [ $# -eq 0 ]
+  then
+    PARAMS="$DDEV_PRIMARY_URL"
+  else
+    PARAMS="$*"
+fi
+
+vnu-runtime-image/bin/vnu --Werror --exit-zero-always --filterfile /mnt/ddev_config/validator/filter.txt --stdout $PARAMS

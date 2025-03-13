@@ -1,0 +1,19 @@
+#ddev-generated
+services:
+  validator:
+    container_name: ddev-${DDEV_SITENAME}-validator
+    image: ghcr.io/validator/validator:latest
+    expose:
+      - "8888"
+    environment:
+      # Use the line below to change the adminer theme.
+      - VIRTUAL_HOST=$DDEV_HOSTNAME
+      - HTTPS_EXPOSE=$VALIDATOR_PORT:8888
+      - DDEV_PRIMARY_URL=$DDEV_PRIMARY_URL
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
+      com.ddev.approot: $DDEV_APPROOT
+    volumes:
+      - ".:/mnt/ddev_config"
+      - "ddev-global-cache:/mnt/ddev-global-cache"
+# extra hosts added by installation script

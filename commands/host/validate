@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+## #ddev-generated: If you want to edit and own this file, remove this line.
+## Description: Launch a browser with the vnu validator
+## Usage: validate
+## Example: ## Example: "ddev validate" or "ddev validate https://<project>.ddev.site"
+
+source "$DDEV_APPROOT/.ddev/.env.validator"
+
+if [ $# -eq 0 ]
+  then
+    URL="$DDEV_PRIMARY_URL"
+  else
+    URL="$1"
+fi
+
+ddev launch "$DDEV_PRIMARY_URL:$VALIDATOR_PORT/?doc=$URL"

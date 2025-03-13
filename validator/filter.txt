@@ -1,0 +1,5 @@
+## #ddev-generated: If you want to edit and own this file, remove this line.
+# add filter rules for vnu messages here
+#
+# Example:
+# Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
